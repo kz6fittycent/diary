@@ -18,6 +18,8 @@ parts:
     source-type: git
     go-buildtags:
       - fyne
+      - fmt
+      - password
     build-snaps:
       - go
     build-packages:
