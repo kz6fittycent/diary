@@ -1,0 +1,7 @@
+module github.com/kz6fittycent/diary
+
+go 1.19
+
+require (
+    fyne.io/fyne/v2 v2.2.3
+)
