@@ -28,6 +28,7 @@ parts:
       - libatk1.0-0
       - libgtk-3-0
       - libnss3
+      - libxxf86vm1
       
     override-build: |
       # Specify the Go version
