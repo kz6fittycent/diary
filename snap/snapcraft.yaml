@@ -31,7 +31,7 @@ parts:
 
     override-build: |
         go mod tidy
-        craftctl build
+        snapcraftctl build
 
 apps:
   diary:
