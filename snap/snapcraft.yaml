@@ -14,7 +14,6 @@ confinement: strict
 parts:
   diary:
     plugin: go
-    go-importpath: github.com/kz6fittycent/diary
     source: https://github.com/kz6fittycent/diary
     source-type: git
     build-snaps:
