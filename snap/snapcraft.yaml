@@ -1,5 +1,5 @@
 name: diary
-base: core22
+base: core24
 version: '1.0.0'
 summary: A desktop application to manage diaries via Nextcloud
 description: |
@@ -14,7 +14,7 @@ confinement: strict
 parts:
   diary:
     plugin: go
-    go-importpath: github.com/kz6fittycent/diary
+    #go-importpath: github.com/kz6fittycent/diary
     source: https://github.com/kz6fittycent/diary
     source-type: git
     build-packages:
@@ -31,7 +31,8 @@ parts:
 apps:
   diary:
     command: diary
-    extensions: [gnome-3-38] 
+    extensions: 
+      - gnome
     plugs:
       - network  
       - network-bind  
