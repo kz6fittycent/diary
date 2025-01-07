@@ -1,59 +1,48 @@
 package main
 
 import (
-	"fmt"
-	"log"
-	"net/url"
-
+	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/widget"
 )
 
 func main() {
+	// Create a new Fyne application
 	myApp := app.New()
 	myWindow := myApp.NewWindow("Diary")
 
-	// Login fields
-	serverEntry := widget.NewEntry()
-	serverEntry.SetPlaceHolder("https://example.com")
+	// Placeholder for username and password input
+	username := widget.NewEntry()
+	username.SetPlaceHolder("Enter your username")
 
-	usernameEntry := widget.NewEntry()
-	usernameEntry.SetPlaceHolder("Username")
+	password := widget.NewPasswordEntry()
+	password.SetPlaceHolder("Enter your password")
 
-	passwordEntry := widget.NewPasswordEntry()
-	passwordEntry.SetPlaceHolder("Password")
+	// URL entry
+	url := widget.NewEntry()
+	url.SetPlaceHolder("Enter your Nextcloud URL (e.g., https://example.com)")
 
 	// Login button
 	loginButton := widget.NewButton("Login", func() {
-		serverURL := serverEntry.Text
-		username := usernameEntry.Text
-		password := passwordEntry.Text
-
-		if err := validateURL(serverURL); err != nil {
-			log.Println("Invalid server URL:", err)
-			return
-		}
-
-		log.Printf("Attempting login to %s with user %s", serverURL, username)
-		// TODO: Implement authentication
+		// Logic for handling login can go here
+		// For now, we'll just print the credentials
+		println("Username:", username.Text)
+		println("Password:", password.Text)
+		println("URL:", url.Text)
 	})
 
-	// Layout
-	form := container.NewVBox(
-		widget.NewLabel("Login to your Nextcloud Diary"),
-		serverEntry,
-		usernameEntry,
-		passwordEntry,
+	// Create the main content
+	content := container.NewVBox(
+		widget.NewLabel("Welcome to Diary"),
+		username,
+		password,
+		url,
 		loginButton,
 	)
 
-	myWindow.SetContent(form)
+	// Set the content and show the window
+	myWindow.SetContent(content)
 	myWindow.Resize(fyne.NewSize(400, 300))
 	myWindow.ShowAndRun()
-}
-
-func validateURL(rawURL string) error {
-	_, err := url.ParseRequestURI(rawURL)
-	return err
 }
