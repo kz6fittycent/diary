@@ -14,14 +14,13 @@ confinement: strict
 parts:
   diary:
     plugin: go
+    go-channel: 1.20/stable
     source: https://github.com/kz6fittycent/diary
     source-type: git
     go-buildtags:
       - fyne
       - fmt
       - password
-    build-snaps:
-      - go
     build-packages:
       - libgtk-3-dev
     stage-packages:
