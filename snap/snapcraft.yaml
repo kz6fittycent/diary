@@ -29,6 +29,10 @@ parts:
       - libgtk-3-0
       - libnss3
 
+    override-build: |
+        go mod tidy
+        craftctl build
+
 apps:
   diary:
     command: diary
