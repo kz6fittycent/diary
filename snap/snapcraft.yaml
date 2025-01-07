@@ -16,8 +16,8 @@ parts:
     plugin: go
     source: https://github.com/kz6fittycent/diary
     source-type: git
-    go-packages:
-      - fyne.io/fyne/v2@latest
+    go-buildtags:
+      - fyne
     build-snaps:
       - go
     build-packages:
