@@ -20,6 +20,7 @@ parts:
       - wget
       - tar
       - libgtk-3-dev
+      - libxxf86vm1
     stage-packages:
       - libglib2.0-0
       - libgdk-pixbuf2.0-0
