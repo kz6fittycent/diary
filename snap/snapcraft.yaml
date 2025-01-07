@@ -32,10 +32,12 @@ parts:
       - libatk1.0-0
       - libgtk-3-0
       - libnss3
-
+      
     override-build: |
-        go mod tidy
-        craftctl default
+      export CGO_ENABLED=1
+      go mod tidy
+      go build -o $CRAFT_PART_INSTALL/diary
+      craftctl default
 
 apps:
   diary:
