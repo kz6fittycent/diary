@@ -31,7 +31,7 @@ parts:
 
     override-build: |
         go mod tidy
-        snapcraftctl build
+        snapcraftctl default
 
 apps:
   diary:
@@ -43,10 +43,10 @@ apps:
       - network-bind  
       - home        
 
-environment:
-  GODEBUG: "netdns=go"
-  FYNE_FONT: "/usr/share/fonts/truetype"
+#environment:
+#  GODEBUG: "netdns=go"
+#  FYNE_FONT: "/usr/share/fonts/truetype"
 
-layout:
-  /usr/share/fonts:
-    bind: $SNAP/usr/share/fonts
+#layout:
+#  /usr/share/fonts:
+#    bind: $SNAP/usr/share/fonts
