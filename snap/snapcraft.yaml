@@ -5,11 +5,16 @@ summary: A desktop application to manage diaries via Nextcloud
 description: |
   Diary is a Linux-centric desktop application written in Go
   that integrates with the Nextcloud diary app. It allows users
-  to manage diary entries securely and efficiently, with support
-  for offline mode and HTTPS security.
+  to manage diary entries securely and efficiently.
 
 grade: stable
 confinement: strict
+license: MIT
+icon: snap/local/diary.png
+contact: https://github.com/kz6fittycent/diary
+issues: https://github.com/kz6fittycent/diary/issues
+source-code: https://github.com/kz6fittycent/diary
+donation: https://www.patreon.com/kz6fittycent
 
 parts:
   diary:
