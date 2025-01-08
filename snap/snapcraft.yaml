@@ -18,14 +18,12 @@ donation: https://www.patreon.com/kz6fittycent
 
 parts:
   diary:
-    plugin: nil
+    plugin: python
     source: https://github.com/kz6fittycent/diary
     source-type: git
-    build-packages:
-      - wget
-      - tar
-      - libgtk-3-dev
-      - libxxf86vm-dev
+    python-packages:
+      - PyQt5
+      - requests
     stage-packages:
       - libglib2.0-0
       - libgdk-pixbuf2.0-0
@@ -34,28 +32,12 @@ parts:
       - libatk1.0-0
       - libgtk-3-0
       - libnss3
-      - libxxf86vm-dev
-      
-    override-build: |
-      # Specify the Go version
-      GO_VERSION=1.20.6
-      wget -q https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz
-      tar -C /usr/local -xzf go${GO_VERSION}.linux-amd64.tar.gz
-      export PATH=/usr/local/go/bin:$PATH
-      
-      # Verify Go version
-      go version
-      
-      # Build the application
-      go mod tidy
-      go build -o $CRAFT_PART_INSTALL/diary
 
 apps:
   diary:
-    command: diary
-    extensions: 
-      - gnome
+    command: bin/main.py
     plugs:
-      - network  
-      - network-bind  
+      - network
+      - network-bind
       - home
+      
